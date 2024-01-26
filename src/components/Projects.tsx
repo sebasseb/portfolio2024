@@ -41,7 +41,7 @@ const Projects = () => {
         </section>
         <section>
           <span className="text-3xl">{translations[language].projects[2].company}</span>
-          <p className="text-xl">{language === 'en' ? "(Hackatón 2022 - NTT DATA - 2nd Price)" : "(Hackatón 2022 - NTT DATA - 2º Lugar)" }</p>
+          <p className="text-xl">{language === 'en' ? "(Hackatón 2022 - NTT DATA - 2nd Prize)" : "(Hackatón 2022 - NTT DATA - 2º Lugar)" }</p>
           <div>
             <ul>
               <li>{translations[language].projects[2].works[0]}</li>
