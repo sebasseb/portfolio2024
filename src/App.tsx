@@ -3,17 +3,20 @@ import "./App.css";
 import { Switch } from "@nextui-org/react";
 import { MoonIcon } from "./assets/MoonIcon";
 import { SunIcon } from "./assets/SunIcon";
+import { Tabs, Tab } from "@nextui-org/react";
 
 import PersonalData from "./components/PersonalData";
 import Skills from "./components/Skills";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Technologies from "./components/Technologies";
 import Projects from "./components/Projects";
-import { LanguageContext } from "../LanguageContext";
+import { LanguageContext } from "./context/LanguageContext";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { ThemeContext } from "./context/ThemeContext";
 
 export default function App() {
   const [isSelected, setIsSelected] = useState(false);
+  const theme = useContext(ThemeContext);
 
   const context = useContext(LanguageContext);
   if (!context) {
@@ -22,15 +25,48 @@ export default function App() {
     );
   }
   const { switchLanguage, language } = context;
+  let tabs = [
+    {
+      id: "personal",
+      label: language === "es" ? "Acerca de mi" : "About me",
+      content: <PersonalData />
+    },
+    {
+      id: "tech",
+      label: language === "es" ? "Tecnologías" : "Technologies",
+      content: <Technologies />
+    },
+    {
+      id: "skills",
+      label: language === "es" ? "Habilidades" : "Skills",
+      content: <Skills />
+    },
+    {
+      id: "projects",
+      label: language === "es" ? "Proyectos" : "Projects",
+      content: <Projects />
+    }
+  ];
 
-  return (
-    <main className={isSelected ? "dark" : "light"}>
+  // Suggested code may be subject to a license. Learn more: ~LicenseLog:4243364218.
+
+
+  useEffect(() => {
+    if(isSelected) {
+      theme?.setTheme('dark')
+    } else {
+      theme?.setTheme('light')
+    }
+  },[isSelected])
+
+  return (  
+    <main className={theme?.theme}>
       <div className="fixed top-7 right-10 z-50">
         <Switch
           onValueChange={setIsSelected}
           isSelected={isSelected}
           size="lg"
-          color="default"
+          color={theme?.theme === 'dark' ? 'secondary' : 'default'}
           startContent={<SunIcon />}
           endContent={<MoonIcon />}
         />
@@ -49,14 +85,20 @@ export default function App() {
           </button>
         )}
       </div>
-      <div className="bg-gray-600">
-        <div className="p-5 flex flex-col gap-5">
-          <PersonalData />
-          <Technologies />
+      <div className="bg-gray-600 w-[100%] h-screen flex justify-center py-10  ">
+        <Tabs variant="solid" color={theme?.theme === 'dark' ? 'secondary' : 'default'} placement="bottom" className="z-50 flex justify-center" aria-label="Dynamic tabs" items={tabs}>
+          {(item) => (
+            <Tab className="flex justify-center items-center" key={item.id} title={item.label}>
+              {item.content}
+            </Tab>
+          )}
+        </Tabs>
+        {/* <PersonalData /> */}
+        {/* <Technologies />
           <Skills />
-          <Projects />
-        </div>
+          <Projects /> */}
       </div>
+
     </main>
   );
 }

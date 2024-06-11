@@ -5,26 +5,28 @@ import Profile from "../assets/profile.webp";
 import Description from "./Description";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useContext } from "react";
-import { LanguageContext } from "../../LanguageContext";
+import { LanguageContext } from "../context/LanguageContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 const iconStyle = "hover:scale-125 transition-transform duration-200";
 
 const PersonalData = () => {
 
   const context = useContext(LanguageContext);
+  const theme = useContext(ThemeContext);
   if (!context) {
     throw new Error(
       "useContext fue llamado fuera del proveedor de LanguageContext"
     );
   }
   const { language } = context;
-  
+
   return (
-    <Card radius="lg" className="border-none flex flex-col md:flex-row">
-      <div className="flex items-center justify-center bg-blue-300">
+    <Card radius="lg" className="border-none h-[85vh] w-[85vw] flex flex-col md:flex-row">
+      <div className={`flex items-center justify-center w-[50%] ${theme?.theme === 'dark' ? 'bg-[#9353d3]' : 'bg-blue-200'}`} >
         <Image
           alt="Sebastián Escobar Briceño"
-          className="object-cover p-5 rounded-full mx-auto w-1/2 md:w-2/3"
+          className="object-cover p-5 rounded-full mx-auto w-1/2"
           src={Profile}
         />
       </div>

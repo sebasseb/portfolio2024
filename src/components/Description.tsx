@@ -1,7 +1,7 @@
 import { Divider } from "@nextui-org/react";
 import { TypeAnimation } from "react-type-animation";
 import { useContext } from "react";
-import { LanguageContext } from "../../LanguageContext";
+import { LanguageContext } from "../context/LanguageContext";
 
 const Description = () => {
   const context = useContext(LanguageContext);
@@ -28,7 +28,7 @@ const Description = () => {
         />
       </div>
       <Divider />
-      <div className="flex flex-col py-10 gap-3">
+      <div className="flex flex-col py-10 gap-3 w-[600px] h-[200px]">
         <span className="text-2xl text-center md:text-start ">
           {translations[language].welcome}
         </span>

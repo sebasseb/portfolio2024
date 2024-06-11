@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from 'react';
-import { LanguageContext, ILanguageContext } from './LanguageContext';
+import { LanguageContext, ILanguageContext } from '../context/LanguageContext';
 
 interface LanguageProviderProps {
     children: ReactNode;
@@ -35,7 +35,6 @@ interface LanguageProviderProps {
                                 <li>Servicios API</li>
                                 <li>Pipes</li>
                                 <li>Decoradores</li>
-                                <li>ChartJS</li>
                             </ul>
                         </div>
                 </div>
@@ -209,7 +208,6 @@ interface LanguageProviderProps {
                                 <li>API Services</li>
                                 <li>Pipes</li>
                                 <li>Decorators</li>
-                                <li>ChartJS</li>
                             </ul>
                         </div>
                 </div>

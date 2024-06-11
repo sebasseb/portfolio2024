@@ -1,6 +1,6 @@
 import { Card, CardHeader, Divider } from "@nextui-org/react";
 import { useContext } from "react";
-import { LanguageContext } from "../../LanguageContext";
+import { LanguageContext } from "../context/LanguageContext";
 
 const Projects = () => {
   const context = useContext(LanguageContext);
@@ -12,7 +12,7 @@ const Projects = () => {
   const { language, translations } = context;
   
   return (
-    <Card radius="lg" className="border-none flex">
+    <Card radius="lg" className="border-none flex h-[85vh] w-[85vw]">
       <CardHeader className="flex justify-center">
         <h1 className="text-4xl my-5">{translations[language].titles[2]}</h1>
       </CardHeader>

@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import {  Card, CardHeader, Divider, Tooltip } from "@nextui-org/react";
 import { useTechnologiesData } from "../utils/TechnologiesData";
 import { useContext } from "react";
-import { LanguageContext } from "../../LanguageContext";
+import { LanguageContext } from "../context/LanguageContext";
 
 const iconStyle = "hover:scale-110 transition-transform duration-200";
 
@@ -17,7 +17,7 @@ const Technologies = () => {
   const { language, translations } = context;
   const icons = useTechnologiesData();
   return (
-    <Card radius="lg" className="border-none flex">
+    <Card radius="lg" className="border-none flex h-[85vh] w-[85vw]  ">
       <CardHeader className="flex justify-center">
         <h1 className="text-4xl my-5">{translations[language].titles[0]}</h1>
       </CardHeader>

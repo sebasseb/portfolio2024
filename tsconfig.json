@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "LanguageProvider.tsx"],
+  "include": ["src", "src/providers/LanguageProvider.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
