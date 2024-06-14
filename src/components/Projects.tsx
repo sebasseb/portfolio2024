@@ -26,6 +26,7 @@ const Projects = () => {
             <ul>
               <li>{translations[language].projects[0].works[0]}</li>
               <li>{translations[language].projects[0].works[1]}</li>
+              <li><a className="text-blue-500 hover:text-blue-700" href={translations[language].projects[0].link} target="_blank" >{translations[language].projects[0].company}</a></li>
             </ul>
           </div>
         </section>
@@ -36,6 +37,7 @@ const Projects = () => {
             <ul>
                 <li>{translations[language].projects[1].works[0]}</li>
                 <li>{translations[language].projects[1].works[1]}</li>
+                <li><a className="text-blue-500 hover:text-blue-700" href={translations[language].projects[1].link} target="_blank" >{translations[language].projects[1].company}</a></li>
             </ul>
           </div>
         </section>

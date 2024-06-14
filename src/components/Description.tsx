@@ -13,26 +13,26 @@ const Description = () => {
   const { language, translations } = context;
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 md:w-[30rem] md:h-[25rem]">
 
-      <div className="min-h-[5em]">
+      <div className="flex flex-col items-center h-[2em] md:h-[7em] ">
         <TypeAnimation
         key={language}
           sequence={translations[language].animation}
           wrapper="span"
-          speed={1}
+          speed={{ type: "keyStrokeDelayInMs", value: 150 }}
           repeat={0}
-          deletionSpeed={1}
+          deletionSpeed={{ type: "keyStrokeDelayInMs", value: 150 }}
           cursor={false}
-          className="text-center text-4xl inline-block"
+          className="text-center text-2xl md:text-4xl inline-block"
         />
       </div>
       <Divider />
-      <div className="flex flex-col py-10 gap-3 w-[600px] h-[200px]">
-        <span className="text-2xl text-center md:text-start ">
+      <div className="flex flex-col gap-10">
+        <span className="text-xl md:text-2xl break-words text-start ">
           {translations[language].welcome}
         </span>
-        <span className="text-2xl text-center md:text-start">
+        <span className="text-xl  text-start">
           {translations[language].description}
         </span>
       </div>

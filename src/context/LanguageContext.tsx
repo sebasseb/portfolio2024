@@ -9,6 +9,7 @@ interface ITecnologia {
 interface IProyecto {
   company: string;
   works: string[];
+  link: string
 }
 
 export interface ITranslation {

@@ -22,16 +22,16 @@ const PersonalData = () => {
   const { language } = context;
 
   return (
-    <Card radius="lg" className="border-none h-[85vh] w-[85vw] flex flex-col md:flex-row">
-      <div className={`flex items-center justify-center w-[50%] ${theme?.theme === 'dark' ? 'bg-[#9353d3]' : 'bg-blue-200'}`} >
+    <Card radius="lg" className="border-none h-[85vh] w-[85vw] flex flex-col md:flex-row overflow-y-scroll">
+      <div className={`flex items-center justify-center md:w-1/2 ${theme?.theme === 'dark' ? 'bg-[#9353d3]' : 'bg-blue-200'}`} >
         <Image
           alt="Sebastián Escobar Briceño"
-          className="object-cover p-5 rounded-full mx-auto w-1/2"
+          className="object-cover rounded-full p-3  w-1/2 mx-auto "
           src={Profile}
         />
       </div>
-      <div className="flex flex-col flex-grow p-4 md:p-20">
-        <h1 className="text-4xl md:text-6xl text-center md:text-left">
+      <div className="flex flex-col p-4 md:p-20">
+        <h1 className="text-4xl md:text-5xl text-center ">
           Sebastián Escobar Briceño
         </h1>
         <section className="flex flex-col items-center justify-center p-2">

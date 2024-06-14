@@ -10,8 +10,7 @@ interface LanguageProviderProps {
   es: {
     animation: [
         "Desarrollador",
-        "Desarrollador Front End",
-        "Desarrollador Back End",
+        "Desarrollador Full Stack",
         "Desarrollador Cloud",
         "Desarrollador Web",
         "Ingeniero Informático",
@@ -154,20 +153,26 @@ interface LanguageProviderProps {
           "✓ Desarrollo Scripting Windows",
           "✓ Página de Presentación",
         ],
+        link: 'https://mservice-gold.vercel.app/'
+
       },
       {
         company:"Master Service LTDA",
         works:[
             "✓ Página de Presentación",
             "✓ Mantenimiento de Hosting y Dominios"
-        ]
+        ],
+        link: 'https://mservice-gold.vercel.app/'
+
       },
       {
         company:"WeTeam",
         works:[
             "✓ Desarrollo en React Native",
             "✓ Desarrollo Bases de Datos en MongoDB"
-        ]
+        ],
+        link: 'https://mservice-gold.vercel.app/'
+
       },
       {
         company:"Innovación y Desarrollo WiTI",
@@ -176,15 +181,15 @@ interface LanguageProviderProps {
             "✓ LevelUp -Desarrollador FullStack",
             "✓ Impactis -Desarrollador Frontend Angular",
             "✓ Alsea -Desarrollador Cloud y FullStack"
-        ]
+        ],
+        link: 'https://mservice-gold.vercel.app/'
+
       }
     ],
   },
   en: {
     animation: [
-        "Developer",
-        "Front End Developer",
-        "Back End Developer",
+        "Full Stack Developer",
         "Cloud Developer",
         "Web Developer",
         "Computer Engineering",
@@ -327,20 +332,25 @@ interface LanguageProviderProps {
           "✓ Windows Scripting Developer",
           "✓ Landing Page",
         ],
+        link: 'https://mservice-gold.vercel.app/'
+
       },
       {
         company:"Master Service LTDA",
         works:[
             "✓ Landing Page",
             "✓ Hosting and Domains Maintenance"
-        ]
+        ],
+        link: 'https://mservice-gold.vercel.app/'
       },
       {
         company:"WeTeam",
         works:[
             "✓ React Native App Development",
             "✓ MongoDB Database Development"
-        ]
+        ],
+        link: 'https://mservice-gold.vercel.app/'
+
       },
       {
         company:"Innovación y Desarrollo WiTI",
@@ -349,7 +359,9 @@ interface LanguageProviderProps {
             "✓ LevelUp - FullStack Development",
             "✓ Impactis - Frontend Developer Angular",
             "✓ Alsea - Cloud and Full Stack Developer"
-        ]
+        ],
+        link: 'https://mservice-gold.vercel.app/'
+
       }
     ],
   },

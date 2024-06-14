@@ -16,6 +16,7 @@ import { ThemeContext } from "./context/ThemeContext";
 
 export default function App() {
   const [isSelected, setIsSelected] = useState(false);
+
   const theme = useContext(ThemeContext);
 
   const context = useContext(LanguageContext);
@@ -52,16 +53,18 @@ export default function App() {
 
 
   useEffect(() => {
-    if(isSelected) {
+    if (isSelected) {
       theme?.setTheme('dark')
     } else {
       theme?.setTheme('light')
     }
-  },[isSelected])
+  }, [isSelected])
 
-  return (  
-    <main className={theme?.theme}>
-      <div className="fixed top-7 right-10 z-50">
+
+
+  return (
+    <main className={`${theme?.theme} overflow-hidden`}>
+      <div className="fixed md:top-7 right-5 bottom-2 z-50">
         <Switch
           onValueChange={setIsSelected}
           isSelected={isSelected}
@@ -72,7 +75,7 @@ export default function App() {
         />
       </div>
 
-      <div className="fixed top-7 left-10 z-50">
+      <div className="fixed bottom-0 md:bottom-7 left-7 z-50">
         {language === "es" && (
           <button onClick={() => switchLanguage("en")}>
             <Icon width={50} icon="emojione:flag-for-united-states" />
@@ -85,20 +88,23 @@ export default function App() {
           </button>
         )}
       </div>
-      <div className="bg-gray-600 w-[100%] h-screen flex justify-center py-10  ">
-        <Tabs variant="solid" color={theme?.theme === 'dark' ? 'secondary' : 'default'} placement="bottom" className="z-50 flex justify-center" aria-label="Dynamic tabs" items={tabs}>
+      <div className="bg-gray-600 w-[100%] h-screen flex flex-col  justify-center items-center   ">
+        <Tabs variant="solid"
+          // isVertical={true}
+          size="sm" 
+          color={theme?.theme === 'dark' ? 'secondary' : 'default'}
+          className="z-50 flex"
+          aria-label="Dynamic tabs"
+          items={tabs}>
           {(item) => (
-            <Tab className="flex justify-center items-center" key={item.id} title={item.label}>
+            <Tab className="flex " key={item.id} title={item.label}>
               {item.content}
             </Tab>
           )}
         </Tabs>
-        {/* <PersonalData /> */}
-        {/* <Technologies />
-          <Skills />
-          <Projects /> */}
       </div>
 
     </main>
   );
 }
+
