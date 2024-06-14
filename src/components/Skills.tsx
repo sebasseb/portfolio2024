@@ -4,7 +4,7 @@ import { Chart as ChartJS, registerables } from "chart.js";
 import { Radar } from "react-chartjs-2";
 import { useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
-import { ThemeContext } from "../context/ThemeContext";
+
 
 
 ChartJS.register(...registerables);

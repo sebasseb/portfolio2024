@@ -17,6 +17,7 @@ import { ThemeContext } from "./context/ThemeContext";
 export default function App() {
   const [isSelected, setIsSelected] = useState(false);
 
+
   const theme = useContext(ThemeContext);
 
   const context = useContext(LanguageContext);

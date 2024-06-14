@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
 import { ThemeContext } from "../context/ThemeContext";
 
-const iconStyle = "hover:scale-125 transition-transform duration-200";
+const iconStyle = "hover:scale-125 transition-transform duration-200 cursor-pointer";
 
 const PersonalData = () => {
 
