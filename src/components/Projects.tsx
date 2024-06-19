@@ -1,69 +1,46 @@
 import { Card, CardHeader, Divider } from "@nextui-org/react";
 import { useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Projects = () => {
   const context = useContext(LanguageContext);
+  const theme = useContext(ThemeContext);
+
   if (!context) {
     throw new Error(
       "useContext fue llamado fuera del proveedor de LanguageContext"
     );
   }
   const { language, translations } = context;
-  
+
+  const projects = [...translations[language].projects];
+  console.log(projects)
+
   return (
-    <Card radius="lg" className="border-none flex h-[85vh] w-[85vw]">
+    <Card radius="lg" className="border-none flex h-[85vh] w-[85vw] ">
       <CardHeader className="flex justify-center">
         <h1 className="text-4xl my-5">{translations[language].titles[2]}</h1>
       </CardHeader>
       <Divider />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-3 md:p-10 md:pl-28">
-        <section>
-          <span className="text-3xl">{translations[language].projects[0].company}</span>
-          <p className="text-xl">(2019 - 2020)</p>
-          <div>
-            <ul>
-              <li>{translations[language].projects[0].works[0]}</li>
-              <li>{translations[language].projects[0].works[1]}</li>
-              <li><a className="text-blue-500 hover:text-blue-700" href={translations[language].projects[0].link} target="_blank" >{translations[language].projects[0].company}</a></li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <span className="text-3xl">{translations[language].projects[1].company}</span>
-          <p className="text-xl">(2021)</p>
-          <div>
-            <ul>
-                <li>{translations[language].projects[1].works[0]}</li>
-                <li>{translations[language].projects[1].works[1]}</li>
-                <li><a className="text-blue-500 hover:text-blue-700" href={translations[language].projects[1].link} target="_blank" >{translations[language].projects[1].company}</a></li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <span className="text-3xl">{translations[language].projects[2].company}</span>
-          <p className="text-xl">{language === 'en' ? "(Hackatón 2022 - NTT DATA - 2nd Prize)" : "(Hackatón 2022 - NTT DATA - 2º Lugar)" }</p>
-          <div>
-            <ul>
-              <li>{translations[language].projects[2].works[0]}</li>
-              <li>{translations[language].projects[2].works[1]}</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <span className="text-3xl">{translations[language].projects[3].company}</span>
-          <p className="text-xl">(2022 - 2023)</p>
-          <div>
-            <ul>
-                <li>{translations[language].projects[3].works[0]}</li>
-                <li>{translations[language].projects[3].works[1]}</li>
-                <li>{translations[language].projects[3].works[2]}</li>
-                <li>{translations[language].projects[3].works[3]}</li>
-            </ul>
-          </div>
-        </section>
-      </div>
+      <section className={`grid grid-cols-1 md:grid-cols-3 gap-5 p-3 md:p-10 md:pl-28 `}>
+        {projects.map((project) => {
+          return (
+            <div className={` p-3 rounded-lg flex flex-col justify-center`} key={project.company}>
+              <h1>{project.company}</h1>
+              {project.works.map((work) => {
+                return (
+                  <p key={work}>{work}</p>
+                )
+              })}
+              
+              {project.link ? <a className={`${theme?.theme === 'dark' ? 'text-red-300 hover:text-red-500' : 'text-blue-500 hover:text-blue-800'} `} href={project.link} target="_blank" rel="noopener noreferrer">{project.company}</a> : null}
+            </div>
+
+          )
+        })}
+      </section>
     </Card>
   );
 };

@@ -13,7 +13,7 @@ const Description = () => {
   const { language, translations } = context;
 
   return (
-    <div className="flex flex-col gap-3 md:w-[30rem] md:h-[25rem]">
+    <div className="flex flex-col gap-3 md:w-[30rem] min-w-[10rem]">
 
       <div className="flex flex-col items-center h-[2em] md:h-[7em] ">
         <TypeAnimation
@@ -28,7 +28,7 @@ const Description = () => {
         />
       </div>
       <Divider />
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-5">
         <span className="text-xl md:text-2xl break-words text-start ">
           {translations[language].welcome}
         </span>

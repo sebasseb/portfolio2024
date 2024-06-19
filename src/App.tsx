@@ -34,6 +34,11 @@ export default function App() {
       content: <PersonalData />
     },
     {
+      id: "projects",
+      label: language === "es" ? "Proyectos" : "Projects",
+      content: <Projects />
+    },
+    {
       id: "tech",
       label: language === "es" ? "Tecnologías" : "Technologies",
       content: <Technologies />
@@ -43,11 +48,6 @@ export default function App() {
       label: language === "es" ? "Habilidades" : "Skills",
       content: <Skills />
     },
-    {
-      id: "projects",
-      label: language === "es" ? "Proyectos" : "Projects",
-      content: <Projects />
-    }
   ];
 
   // Suggested code may be subject to a license. Learn more: ~LicenseLog:4243364218.
